@@ -18,7 +18,7 @@ const App = () => {
     <div className="flex flex-col justify-center bg-zinc-900 py-10 px-4 sm:px-8 md:px-10 lg:px-14 xl:px-20 2xl:px-44 min-h-screen">
       <header className="justify-center items-center text-white">
         <div className="flex justify-center text-base md:text-3xl lg:text-4xl pb-10 font-bold font-mono">
-          Ankr Multichain NFT Gallery
+          🖼 Ankr Multichain ⛓ NFT Gallery 🖼
         </div>
         <div className="flex flex-col mt-4 items-center">
           <label
