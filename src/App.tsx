@@ -25,7 +25,7 @@ const App = () => {
             className="text-white pb-3 text-sm font-mono sm:text-lg"
             htmlFor="wallet-address"
           >
-            enter a wallet address
+            enter an Ethereum wallet address or ENS
           </label>
           <input
             id="wallet-address"
@@ -33,7 +33,7 @@ const App = () => {
             value={walletAddress}
             onChange={(jpegs) => setWalletAddress(jpegs.target.value)}
             className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center font-mono text-sm sm:text-lg"
-            placeholder="Ethereum or ENS"
+            placeholder="0x...420 or vitalik.eth"
           />
         </div>
       </header>
