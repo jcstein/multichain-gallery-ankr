@@ -33,7 +33,7 @@ const App = () => {
             value={walletAddress}
             onChange={(jpegs) => setWalletAddress(jpegs.target.value)}
             className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center font-mono text-sm sm:text-lg"
-            placeholder="ETH address or ENS"
+            placeholder="Ethereum or ENS"
           />
         </div>
       </header>
