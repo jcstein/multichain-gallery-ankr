@@ -31,7 +31,6 @@ export default function Card({
       {isIpfs && (
         <IpfsImage
           hash={imageSlug}
-          alt={name}
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
@@ -43,8 +42,7 @@ export default function Card({
             onError={(i: any) => (i.target.style.display = "none")}
           />
           <IpfsImage
-            hash={imageSlug}
-            alt={name}
+            hash="{imageSlug}"
             onError={(i: any) => (i.target.style.display = "none")}
           />
           {/* I only want this to render if there is no image */}
