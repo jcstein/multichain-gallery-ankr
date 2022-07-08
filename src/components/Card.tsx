@@ -17,7 +17,6 @@ export default function Card({
   const isGif = imageSlug?.split(".").pop() === "gif";
   const isVideo = imageSlug?.split(".").pop() === "mp4";
   const isIpfs = imageSlug?.split("").pop() === "";
-  //   const isLens = imageSlug?.split(".").pop() === ".ipfs.infura-ipfs.io";
 
   return (
     <div>
@@ -31,7 +30,6 @@ export default function Card({
       {isIpfs && (
         <IpfsImage
           hash={imageSlug}
-          alt={name}
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
@@ -44,20 +42,18 @@ export default function Card({
           />
           <IpfsImage
             hash="{imageSlug}"
-            alt={name}
             onError={(i: any) => (i.target.style.display = "none")}
           />
-          {/* I only want this to render if there is no image */}
+          {/* I only want this to render if there is no image 
+          send request to figure mime type of image and render accordingly */}
           <video loop autoPlay hidden muted>
             <source src={imageSlug} />
           </video>
         </div>
       )}
-      {/* {isLens && (
-        <video loop autoPlay hidden muted>
-          <source src={imageSlug} />
-        </video>
-      )} */}
+      {/* <video loop autoPlay hidden muted>
+        <source src={imageSlug} />
+      </video> */}
       <div className="flex flex-col space-y-2 pt-2">
         <a target="_blank" href={imageSlug} rel="noreferrer">
           <span className="font-bold mt-4 text-base sm:text-lg">{name}</span>
