@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNfts } from "./main";
 import { Nft } from "@ankr.com/ankr.js/dist/types";
+import Card from "./components/Card";
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -44,20 +45,12 @@ const App = () => {
               key={`${nft.contractAddress}/${nft.tokenId}`}
               className="flex flex-col rounded border p-4 items-center text-center"
             >
-              <img
-                className="w-auto rounded"
-                src={nft.imageUrl}
-                alt={nft.name}
+              <Card
+                name={nft.name}
+                imageSlug={nft.imageUrl}
+                blockchain={nft.blockchain}
+                collection={nft.collectionName}
               />
-              <div className="flex flex-col space-y-2">
-                <span className="font-bold mt-4 text-base sm:text-lg">
-                  {nft.name}
-                </span>
-                <span className="text-sm sm:text-md">{nft.collectionName}</span>
-                <span className="uppercase text-xs sm:text-sm font-mono font-bold">
-                  {nft.blockchain}
-                </span>
-              </div>
             </div>
           );
         })}
