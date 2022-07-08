@@ -44,7 +44,7 @@ export default function Card({
             hash="{imageSlug}"
             onError={(i: any) => (i.target.style.display = "none")}
           />
-          {/* I only want this to render if there is no image 
+          {/* I only want this to render if there is no video - otherwise it will render when no video is present
           send request to figure mime type of image and render accordingly */}
           <video loop autoPlay hidden muted>
             <source src={imageSlug} />
