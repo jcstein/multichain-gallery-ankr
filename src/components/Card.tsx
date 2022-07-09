@@ -46,7 +46,7 @@ export default function Card({
       )}
       {isHashUrl && (
         <IpfsImage
-          hash={imageSlug}
+          hash="{imageSlug}"
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
