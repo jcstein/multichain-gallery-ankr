@@ -13,54 +13,60 @@ export default function Card({
   blockchain,
   collection,
 }: CardProps) {
-  const isImage = imageSlug?.split(".").pop() === "png";
+  const isImage =
+    imageSlug?.split(".").pop() === "png" ||
+    imageSlug?.split(".").pop() === "jpg";
   const isGif = imageSlug?.split(".").pop() === "gif";
   const isVideo = imageSlug?.split(".").pop() === "mp4";
-  const isIpfs = imageSlug?.split("").pop() === "";
+  const isHash = imageSlug?.length === 46;
+  const isHashUrl = imageSlug?.startsWith("ipfs://");
 
   return (
     <div>
-      {isImage && <img src={imageSlug} alt={name} />}
-      {isGif && <img src={imageSlug} alt={name} />}
-      {isVideo && (
-        <video loop autoPlay muted>
-          <source src={imageSlug} />
-        </video>
+      {isImage && (
+        <img
+          src={imageSlug}
+          alt={name}
+          onError={(i: any) => (i.target.style.display = "none")}
+        />
       )}
-      {isIpfs && (
+      {isGif && (
+        <img
+          src={imageSlug}
+          alt={name}
+          onError={(i: any) => (i.target.style.display = "none")}
+        />
+      )}
+      {isVideo && <video loop autoPlay hidden muted src={imageSlug} />}
+      {isHash && (
         <IpfsImage
           hash={imageSlug}
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
-      {!isVideo && !isGif && !isImage && !isIpfs && (
+      {isHashUrl && (
+        <IpfsImage
+          hash={imageSlug}
+          onError={(i: any) => (i.target.style.display = "none")}
+        />
+      )}
+      {!isVideo && !isGif && !isImage && (
         <div>
           <img
             src={imageSlug}
             alt={name}
             onError={(i: any) => (i.target.style.display = "none")}
           />
-          <IpfsImage
-            hash="{imageSlug}"
-            onError={(i: any) => (i.target.style.display = "none")}
-          />
-          {/* I only want this to render if there is no video - otherwise it will render when no video is present
-          send request to figure mime type of image and render accordingly */}
-          <video loop autoPlay hidden muted>
-            <source src={imageSlug} />
-          </video>
+          <video loop autoPlay hidden muted src={imageSlug} />
         </div>
       )}
-      {/* <video loop autoPlay hidden muted>
-        <source src={imageSlug} />
-      </video> */}
       <div className="flex flex-col space-y-2 pt-2">
         <a target="_blank" href={imageSlug} rel="noreferrer">
           <span className="font-bold mt-4 text-base sm:text-lg">{name}</span>
         </a>
         <span className="text-sm sm:text-md">{collection}</span>
         <span className="uppercase text-xs sm:text-sm font-mono font-bold text-[#356DF3]">
-          <span className="text-white capitalize">Chain: </span>
+          <span className="text-white">Chain: </span>
           {blockchain}
         </span>
       </div>
