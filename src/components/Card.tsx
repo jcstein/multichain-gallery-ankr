@@ -40,7 +40,7 @@ export default function Card({
       {isVideo && <video loop autoPlay hidden muted src={imageSlug} />}
       {isHash && (
         <IpfsImage
-          hash={imageSlug}
+          hash="{imageSlug}"
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
