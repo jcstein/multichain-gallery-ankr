@@ -2,11 +2,11 @@
 
 ## To install dependencies
 
-`npm install` or `yarn install`
+`npm install` or `yarn install` or `bun install`
 
 ## To run the project locally
 
-`npm run dev` or `yarn dev`
+`npm run dev` or `yarn dev` or `bun run dev`
 
 ## To deploy to Vercel
 
