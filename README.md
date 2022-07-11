@@ -12,7 +12,7 @@
 
 Download the [Vercel CLI](https://vercel.com/docs/cli) and run `vercel` from the root directory of this repository
 
-You can also link your GitHub repository on [Vercel's site](https://vercel.com)
+You can also link and deploy your GitHub repository on [Vercel's site](https://vercel.com)
 
 ### 🟢 A live version of the deployment is available [here](https://vite-tailwind-starter.vercel.app/)
 
