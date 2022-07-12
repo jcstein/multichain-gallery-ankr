@@ -6,24 +6,26 @@ import Card from "./components/Card";
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("joshcs.eth");
   const [nfts, setNfts] = useState<Nft[]>([]);
+  // const [pageToken, setPageToken] = useState("null");
 
   useEffect(() => {
     (async () => {
       const { nfts } = await getNfts(walletAddress);
       console.log({ nfts });
       setNfts(nfts);
+      // setPageToken(nfts.pageToken);
     })();
   }, [walletAddress]);
 
   return (
     <div className="flex flex-col justify-center bg-zinc-900 py-10 px-4 sm:px-8 md:px-10 lg:px-14 xl:px-20 2xl:px-44 min-h-screen">
       <header className="justify-center items-center text-white">
-        <div className="flex justify-center text-base sm:text-2xl md:text-3xl lg:text-4xl pb-10 font-bold font-mono">
+        <div className="flex justify-center text-base sm:text-2xl md:text-3xl lg:text-4xl pb-10 font-bold">
           🖼 Ankr Multichain ⛓ NFT Gallery 🖼
         </div>
         <div className="flex flex-col mt-4 items-center">
           <label
-            className="text-white pb-5 text-sm font-mono sm:text-lg md:text-xl lg:text-2xl"
+            className="text-white pb-5 text-sm sm:text-lg md:text-xl lg:text-2xl"
             htmlFor="wallet-address"
           >
             enter an Ethereum wallet address or ENS
@@ -33,7 +35,7 @@ const App = () => {
             type="text"
             value={walletAddress}
             onChange={(jpegs) => setWalletAddress(jpegs.target.value)}
-            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center font-mono text-sm sm:text-lg"
+            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg"
             placeholder="0x...420 or vitalik.eth"
           />
         </div>
@@ -55,6 +57,9 @@ const App = () => {
           );
         })}
       </div>
+      {/* <div className="flex flex-col justify-center items-center text-white pt-10">
+        {pageToken}
+      </div> */}
     </div>
   );
 };

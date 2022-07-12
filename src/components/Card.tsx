@@ -21,7 +21,6 @@ export default function Card({
   const isVideo = imageSlug?.split(".").pop() === "mp4";
   const isHash = imageSlug?.length === 46;
   const isHashUrl = imageSlug?.startsWith("ipfs://");
-
   const [isVideoError, setIsVideoError] = useState(false);
 
   useEffect(() => {
@@ -81,7 +80,7 @@ export default function Card({
           <span className="font-bold mt-4 text-base sm:text-lg">{name}</span>
         </a>
         <span className="text-sm sm:text-md">{collection}</span>
-        <span className="uppercase text-xs sm:text-sm font-mono font-bold text-[#356DF3]">
+        <span className="uppercase text-xs sm:text-sm font-bold text-[#356DF3]">
           <span className="text-white">Chain: </span>
           {blockchain}
         </span>

@@ -10,6 +10,7 @@ export const getNfts = async (address: string) => {
   const { assets } = await provider.getNFTsByOwner({
     walletAddress: address,
     pageSize: 50,
+    // pageToken: "null",
   });
   return {
     nfts: assets,
