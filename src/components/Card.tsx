@@ -47,17 +47,18 @@ export default function Card({
       {isVideo && <video loop autoPlay hidden muted src={imageSlug} />}
       {isHash && (
         <IpfsImage
-          hash={imageSlug as string}
+          hash={imageSlug}
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
       {isHashUrl && (
         <IpfsImage
-          hash={imageSlug as string}
+          hash={imageSlug}
           onError={(i: any) => (i.target.style.display = "none")}
         />
       )}
       {!isVideo && !isGif && !isImage && (
+        <div>
           <img
             src={imageSlug}
             alt={name}
@@ -73,6 +74,7 @@ export default function Card({
               onError={() => setIsVideoError(true)}
             />
           )}
+        </div>
       )}
       <div className="flex flex-col space-y-2 pt-2">
         <a target="_blank" href={imageSlug} rel="noreferrer">
