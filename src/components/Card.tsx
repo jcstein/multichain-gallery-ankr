@@ -19,10 +19,7 @@ export default function Card({
   const isGif = imageSlug?.split(".").pop() === "gif";
   const isVideo = imageSlug?.split(".").pop() === "mp4";
   const isHash = imageSlug?.length === 46;
-  const isHashUrl =
-    imageSlug?.startsWith("ipfs://") ||
-    imageSlug?.startsWith("https://ipfs.io/ipfs/") ||
-    imageSlug?.startsWith("ipfs.io/ipfs/");
+  const isHashUrl = imageSlug?.startsWith("ipfs://");
 
   return (
     <div>
@@ -61,19 +58,6 @@ export default function Card({
             onError={(i: any) => (i.target.style.display = "none")}
           />
           <video loop autoPlay hidden muted src={imageSlug} />
-          {/* <div>
-            {this.state.video ? (
-              <video loop autoPlay hidden muted src={imageSlug} />
-            ) : null}
-          </div> */}
-          {/* img and video has an error event
-like video.addEventListener('error', onError, true);
-video variable you can find by ref (if react) or Document.querySelector if native js
-onError is a function and you can implement any logic there
-Also, I would research an npm plugin with such option lmao instead of writing it manually 
-You can try poster attribute
-<video poster="<your image poster>"/>
-*/}
         </div>
       )}
       <div className="flex flex-col space-y-2 pt-2">
