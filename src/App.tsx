@@ -34,7 +34,7 @@ const App = () => {
             type="text"
             value={walletAddress}
             onChange={(wallet) => setWalletAddress(wallet.target.value)}
-            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg"
+            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200"
             placeholder="0x...420 or vitalik.eth"
           />
           {/* <button
