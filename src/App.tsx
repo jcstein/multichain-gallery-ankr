@@ -8,13 +8,19 @@ const App = () => {
   const [nfts, setNfts] = useState<Nft[]>([]);
   // const [pageToken, setPageToken] = useState("");
 
-  useEffect(() => {
-    (async () => {
-      const { nfts } = await getNfts(walletAddress);
-      console.log({ nfts });
-      setNfts(nfts);
-    })();
-  }, [walletAddress]);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { nfts } = await getNfts(walletAddress);
+  //     console.log({ nfts });
+  //     setNfts(nfts);
+  //   })();
+  // }, [walletAddress]);
+
+  const handleClick = async () => {
+    const { nfts } = await getNfts(walletAddress);
+    console.log({ nfts });
+    setNfts(nfts);
+  };
 
   return (
     <div className="flex flex-col justify-center bg-zinc-900 py-10 px-4 sm:px-8 md:px-10 lg:px-14 xl:px-20 2xl:px-44 min-h-screen">
@@ -37,12 +43,12 @@ const App = () => {
             className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200"
             placeholder="0x...420 or vitalik.eth"
           />
-          {/* <button
+          <button
             className="bg-[#356DF3] hover:bg-blue-800 transition-colors ease-in-out duration-300 mt-3 py-2 px-4 rounded-lg"
-            onClick={() => setWalletAddress("vitalik.eth")}
+            onClick={() => handleClick()}
           >
             Submit
-          </button> */}
+          </button>
         </div>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8 gap-4 text-white bg-zinc-900">
