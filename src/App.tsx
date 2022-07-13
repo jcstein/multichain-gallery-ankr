@@ -4,7 +4,7 @@ import { Nft } from "@ankr.com/ankr.js/dist/types";
 import Card from "./components/Card";
 
 const App = () => {
-  const [walletAddress, setWalletAddress] = useState("joshcs.eth");
+  const [walletAddress, setWalletAddress] = useState("");
   const [nfts, setNfts] = useState<Nft[]>([]);
   // const [pageToken, setPageToken] = useState("");
 
@@ -27,16 +27,22 @@ const App = () => {
             className="text-white pb-5 text-sm sm:text-lg md:text-xl lg:text-2xl"
             htmlFor="wallet-address"
           >
-            enter an Ethereum address or ENS
+            Enter an Ethereum Address or ENS Domain to view your NFTs
           </label>
           <input
             id="wallet-address"
             type="text"
             value={walletAddress}
-            onChange={(jpegs) => setWalletAddress(jpegs.target.value)}
+            onChange={(wallet) => setWalletAddress(wallet.target.value)}
             className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg"
             placeholder="0x...420 or vitalik.eth"
           />
+          {/* <button
+            className="bg-[#356DF3] hover:bg-blue-800 transition-colors ease-in-out duration-300 mt-3 py-2 px-4 rounded-lg"
+            onClick={() => setWalletAddress("vitalik.eth")}
+          >
+            Submit
+          </button> */}
         </div>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8 gap-4 text-white bg-zinc-900">
