@@ -6,14 +6,13 @@ import Card from "./components/Card";
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("joshcs.eth");
   const [nfts, setNfts] = useState<Nft[]>([]);
-  // const [pageToken, setPageToken] = useState("null");
+  // const [pageToken, setPageToken] = useState("");
 
   useEffect(() => {
     (async () => {
       const { nfts } = await getNfts(walletAddress);
       console.log({ nfts });
       setNfts(nfts);
-      // setPageToken(nfts.pageToken);
     })();
   }, [walletAddress]);
 
@@ -28,7 +27,7 @@ const App = () => {
             className="text-white pb-5 text-sm sm:text-lg md:text-xl lg:text-2xl"
             htmlFor="wallet-address"
           >
-            enter an Ethereum wallet address or ENS
+            enter an Ethereum address or ENS
           </label>
           <input
             id="wallet-address"
@@ -45,7 +44,7 @@ const App = () => {
           return (
             <div
               key={`${nft.contractAddress}/${nft.tokenId}`}
-              className="flex flex-col rounded border p-4 items-center text-center"
+              className="flex flex-col rounded-xl border p-4 items-center text-center"
             >
               <Card
                 name={nft.name}

@@ -20,7 +20,10 @@ export default function Card({
   const isGif = imageSlug?.split(".").pop() === "gif";
   const isVideo = imageSlug?.split(".").pop() === "mp4";
   const isHash = imageSlug?.length === 46;
-  const isHashUrl = imageSlug?.startsWith("ipfs://");
+  const isHashUrl =
+    imageSlug?.startsWith("ipfs://") ||
+    imageSlug?.startsWith("https://ipfs.io/") ||
+    imageSlug?.startsWith("https://ipfs.io/ipfs/");
   const [isVideoError, setIsVideoError] = useState(false);
 
   useEffect(() => {
@@ -77,7 +80,7 @@ export default function Card({
       )}
       <div className="flex flex-col space-y-2 pt-2">
         <a target="_blank" href={imageSlug} rel="noreferrer">
-          <span className="font-bold mt-4 text-base sm:text-lg">{name}</span>
+          <span className="font-bold mt-4 text-sm">{name}</span>
         </a>
         <span className="text-sm sm:text-md">{collection}</span>
         <span className="uppercase text-xs sm:text-sm font-bold text-[#356DF3]">
