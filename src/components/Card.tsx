@@ -25,6 +25,8 @@ export default function Card({
     imageSlug?.startsWith("https://ipfs.io/") ||
     imageSlug?.startsWith("https://ipfs.io/ipfs/");
   const [isVideoError, setIsVideoError] = useState(false);
+  const isEmpty =
+    imageSlug?.length === 0 || imageSlug === "https://ipfs.io/ipfs/";
 
   useEffect(() => {
     setIsVideoError(false);
@@ -77,6 +79,12 @@ export default function Card({
             />
           )}
         </div>
+      )}
+      {isEmpty && (
+        <img
+          src="https://raw.githubusercontent.com/jcstein/jpegs/main/image-not-found-01.png"
+          alt="Image Not Found"
+        />
       )}
       <div className="flex flex-col space-y-2 pt-2">
         <a target="_blank" href={imageSlug} rel="noreferrer">

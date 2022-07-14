@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getNfts } from "./main";
 import { Nft } from "@ankr.com/ankr.js/dist/types";
 import Card from "./components/Card";
@@ -28,12 +28,13 @@ const App = () => {
         <div className="flex justify-center text-base sm:text-2xl md:text-3xl lg:text-4xl pb-10 font-bold">
           🖼 Ankr Multichain ⛓ NFT Gallery 🖼
         </div>
-        <div className="flex flex-col mt-4 items-center">
+        <div className="flex flex-col mt-4 items-center text-center">
           <label
             className="text-white pb-5 text-sm sm:text-lg md:text-xl lg:text-2xl"
             htmlFor="wallet-address"
           >
-            Enter an Ethereum Address or ENS Domain to view your NFTs
+            Enter an Ethereum Address, ENS Domain, or Unstoppable Domain to view
+            your NFTs
           </label>
           <input
             id="wallet-address"
@@ -41,7 +42,8 @@ const App = () => {
             value={walletAddress}
             onChange={(wallet) => setWalletAddress(wallet.target.value)}
             className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200"
-            placeholder="0x...420 or vitalik.eth"
+            placeholder="0x...420 or vitalik.eth or joshcs.888"
+            // onKeyUp={handleClick()}
           />
           <button
             className="bg-[#356DF3] hover:bg-blue-800 transition-colors ease-in-out duration-300 mt-3 py-2 px-4 rounded-lg"
