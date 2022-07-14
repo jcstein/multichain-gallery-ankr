@@ -6,15 +6,6 @@ import Card from "./components/Card";
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [nfts, setNfts] = useState<Nft[]>([]);
-  // const [pageToken, setPageToken] = useState("");
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const { nfts } = await getNfts(walletAddress);
-  //     console.log({ nfts });
-  //     setNfts(nfts);
-  //   })();
-  // }, [walletAddress]);
 
   const handleClick = async () => {
     const { nfts } = await getNfts(walletAddress);
@@ -43,7 +34,6 @@ const App = () => {
             onChange={(wallet) => setWalletAddress(wallet.target.value)}
             className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200"
             placeholder="0x...420 or vitalik.eth or joshcs.888"
-            // onKeyUp={handleClick()}
           />
           <button
             className="bg-[#356DF3] hover:bg-blue-800 transition-colors ease-in-out duration-300 mt-3 py-2 px-4 rounded-lg"
