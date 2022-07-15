@@ -6,6 +6,7 @@ export interface CardProps {
   imageSlug?: string;
   blockchain?: string;
   collection?: string;
+  // traits?: string[];
 }
 
 export default function Card({
@@ -13,7 +14,8 @@ export default function Card({
   imageSlug,
   blockchain,
   collection,
-}: CardProps) {
+}: // traits,
+CardProps) {
   const isImage =
     imageSlug?.split(".").pop() === "png" ||
     imageSlug?.split(".").pop() === "jpg";
@@ -91,9 +93,8 @@ export default function Card({
           <span className="font-bold mt-4 text-sm">{name}</span>
         </a>
         <span className="text-sm sm:text-md">{collection}</span>
-        <span className="uppercase text-xs sm:text-sm font-bold text-[#356DF3]">
-          <span className="text-white">Chain: </span>
-          {blockchain}
+        <span className="text-white inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 text-xs sm:text-sm font-bold text-[#356DF3]">
+          Chain: <span className="uppercase">{blockchain}</span>
         </span>
       </div>
     </div>

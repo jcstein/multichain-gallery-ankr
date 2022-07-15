@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getNfts } from "./main";
 import { Nft } from "@ankr.com/ankr.js/dist/types";
 import Card from "./components/Card";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount, useEnsName } from "wagmi";
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [nfts, setNfts] = useState<Nft[]>([]);
 
-  const handleClick = async () => {
-    const { nfts } = await getNfts(walletAddress);
+  const handleClick = async (address: string) => {
+    const { nfts } = await getNfts(address);
     console.log({ nfts });
     setNfts(nfts);
   };
+
+  const { address } = useAccount();
+  const { data: ensName } = useEnsName({ address });
+
+  useEffect(() => {
+    setWalletAddress(ensName || (address as string));
+    handleClick(ensName || (address as string));
+  }, [address]);
 
   return (
     <div className="flex flex-col justify-center bg-zinc-900 py-10 px-4 sm:px-8 md:px-10 lg:px-14 xl:px-20 2xl:px-44 min-h-screen">
@@ -25,25 +34,27 @@ const App = () => {
             className="text-white pb-5 text-sm sm:text-lg md:text-xl lg:text-2xl"
             htmlFor="wallet-address"
           >
-            Enter an Ethereum Address, ENS Domain, or Unstoppable Domain to view
-            your NFTs
+            Enter an Ethereum Address, ENS Domain, Unstoppable Domain, or
+            connect your wallet to view your NFTs
           </label>
           <input
             id="wallet-address"
             type="text"
             value={walletAddress}
             onChange={(wallet) => setWalletAddress(wallet.target.value)}
-            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200"
+            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200 mb-2"
             placeholder="0x...420 or vitalik.eth or joshcs.888"
           />
+          <div className="mb-3">or</div>
+          <div className="mb-5">
+            <ConnectButton />
+          </div>
           <button
-            className="bg-[#3898FF] hover:scale-105 duration-300 ease-in-out mt-3 py-2 px-4 rounded-xl my-2 font-bold"
-            onClick={() => handleClick()}
+            className="bg-[#36C98E] hover:scale-105 duration-300 ease-in-out mt-3 py-2 px-4 rounded-xl font-bold"
+            onClick={() => handleClick(ensName || (address as string))}
           >
             Submit
           </button>
-          <div className="mb-2">or</div>
-          <ConnectButton />
         </div>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8 gap-4 text-white bg-zinc-900">

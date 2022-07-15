@@ -15,60 +15,12 @@ import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, provider } = configureChains(
-  [
-    chain.mainnet,
-    chain.goerli,
-    chain.optimism,
-    chain.optimismKovan,
-    chain.polygon,
-    chain.polygonMumbai,
-    chain.arbitrum,
-  ],
+  [chain.mainnet],
   [
     jsonRpcProvider({
       rpc: () => {
         return {
           http: "https://rpc.ankr.com/eth",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/eth_goerli",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/optimism",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/optimism_testnet",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/polygon_mumbai",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/arbitrum",
         };
       },
     }),
