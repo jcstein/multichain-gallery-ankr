@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { IpfsImage } from "react-ipfs-image";
+import { Attribute } from "@ankr.com/ankr.js/dist/types";
 
 export interface CardProps {
   name?: string;
   imageSlug?: string;
   blockchain?: string;
   collection?: string;
+  traits?: Attribute[];
 }
 
 export default function Card({
@@ -13,6 +15,7 @@ export default function Card({
   imageSlug,
   blockchain,
   collection,
+  traits,
 }: CardProps) {
   const isImage =
     imageSlug?.split(".").pop() === "png" ||
@@ -93,6 +96,14 @@ export default function Card({
         <span className="text-sm sm:text-md">{collection}</span>
         <span className="text-white inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-xs sm:text-sm font-bold text-[#356DF3]">
           <span className="uppercase">{blockchain}</span>
+        </span>
+        <span>
+          {traits?.map((traits) => (
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-xs sm:text-sm font-bold text-zinc-700 mr-2 mt-1">
+              <span className="capitalize">{traits.trait_type}</span>:{" "}
+              {traits.value}
+            </span>
+          ))}
         </span>
       </div>
     </div>

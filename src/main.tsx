@@ -15,60 +15,12 @@ import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, provider } = configureChains(
-  [
-    chain.mainnet,
-    chain.goerli,
-    chain.optimism,
-    chain.optimismKovan,
-    chain.polygon,
-    chain.polygonMumbai,
-    chain.arbitrum,
-  ],
+  [chain.mainnet],
   [
     jsonRpcProvider({
       rpc: () => {
         return {
           http: "https://rpc.ankr.com/eth",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/eth_goerli",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/optimism",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/optimism_testnet",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/polygon_mumbai",
-        };
-      },
-    }),
-    publicProvider(),
-    jsonRpcProvider({
-      rpc: () => {
-        return {
-          http: "https://rpc.ankr.com/arbitrum",
         };
       },
     }),
@@ -82,7 +34,7 @@ const connectors = connectorsForWallets([
     wallets: [
       wallet.metaMask({ chains, shimDisconnect: true }),
       wallet.walletConnect({ chains }),
-      wallet.coinbase({ appName: "Vite React RainbowKit Starter App", chains }),
+      wallet.coinbase({ appName: "Ankr Multichain NFT Gallery", chains }),
       wallet.rainbow({ chains }),
     ],
   },
@@ -101,7 +53,6 @@ const connectors = connectorsForWallets([
       }),
       wallet.ledger({
         chains,
-        // infuraId: null,
       }),
       wallet.steak({ chains }),
       wallet.trust({ chains, shimDisconnect: true }),
