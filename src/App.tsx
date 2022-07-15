@@ -2,6 +2,7 @@ import { useState } from "react";
 import { getNfts } from "./main";
 import { Nft } from "@ankr.com/ankr.js/dist/types";
 import Card from "./components/Card";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -36,11 +37,13 @@ const App = () => {
             placeholder="0x...420 or vitalik.eth or joshcs.888"
           />
           <button
-            className="bg-[#356DF3] hover:bg-blue-800 transition-colors ease-in-out duration-300 mt-3 py-2 px-4 rounded-lg"
+            className="bg-[#3898FF] hover:scale-105 duration-300 ease-in-out mt-3 py-2 px-4 rounded-xl my-2 font-bold"
             onClick={() => handleClick()}
           >
             Submit
           </button>
+          <div className="mb-2">or</div>
+          <ConnectButton />
         </div>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8 gap-4 text-white bg-zinc-900">
@@ -60,9 +63,6 @@ const App = () => {
           );
         })}
       </div>
-      {/* <div className="flex flex-col justify-center items-center text-white pt-10">
-        {pageToken}
-      </div> */}
     </div>
   );
 };
