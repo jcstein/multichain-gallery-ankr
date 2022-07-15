@@ -6,7 +6,6 @@ export interface CardProps {
   imageSlug?: string;
   blockchain?: string;
   collection?: string;
-  // traits?: string[];
 }
 
 export default function Card({
@@ -14,8 +13,7 @@ export default function Card({
   imageSlug,
   blockchain,
   collection,
-}: // traits,
-CardProps) {
+}: CardProps) {
   const isImage =
     imageSlug?.split(".").pop() === "png" ||
     imageSlug?.split(".").pop() === "jpg";
