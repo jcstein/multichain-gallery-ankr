@@ -91,7 +91,7 @@ export default function Card({
           <span className="font-bold mt-4 text-sm">{name}</span>
         </a>
         <span className="text-sm sm:text-md">{collection}</span>
-        <span className="text-white inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 text-xs sm:text-sm font-bold text-[#356DF3]">
+        <span className="text-white inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-xs sm:text-sm font-bold text-[#356DF3]">
           Chain: <span className="uppercase">{blockchain}</span>
         </span>
       </div>
