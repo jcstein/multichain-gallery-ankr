@@ -33,17 +33,17 @@ const App = () => {
             type="text"
             value={walletAddress}
             onChange={(wallet) => setWalletAddress(wallet.target.value)}
-            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200"
+            className="rounded p-2 w-full md:w-[427px] border text-zinc-700 truncate text-center text-sm sm:text-lg bg-zinc-100 hover:bg-zinc-200 transition-colors ease-in-out duration-200 mb-1"
             placeholder="0x...420 or vitalik.eth or joshcs.888"
           />
+          <div className="mb-2">or</div>
+          <ConnectButton />
           <button
-            className="bg-[#3898FF] hover:scale-105 duration-300 ease-in-out mt-3 py-2 px-4 rounded-xl my-2 font-bold"
+            className="bg-[#36C98E] hover:scale-105 duration-300 ease-in-out mt-7 py-2 px-4 rounded-xl my-2 font-bold"
             onClick={() => handleClick()}
           >
             Submit
           </button>
-          <div className="mb-2">or</div>
-          <ConnectButton />
         </div>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8 gap-4 text-white bg-zinc-900">
