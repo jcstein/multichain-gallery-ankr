@@ -3,6 +3,7 @@ import { getNfts } from "./main";
 import { Nft } from "@ankr.com/ankr.js/dist/types";
 import Card from "./components/Card";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+// import { useAccount, useEnsName } from "wagmi";
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -18,7 +19,7 @@ const App = () => {
     <div className="flex flex-col justify-center bg-zinc-900 py-10 px-4 sm:px-8 md:px-10 lg:px-14 xl:px-20 2xl:px-44 min-h-screen">
       <header className="justify-center items-center text-white">
         <div className="flex justify-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl pb-10 font-bold text-center">
-          🖼 Ankr Multichain ⛓ NFT Gallery 🖼
+          Ankr Multichain ⛓ 🖼 NFT Gallery
         </div>
         <div className="flex flex-col mt-4 items-center text-center">
           <label
