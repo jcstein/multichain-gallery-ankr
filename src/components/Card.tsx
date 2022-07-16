@@ -94,14 +94,16 @@ export default function Card({
           <span className="font-bold mt-4 text-sm">{name}</span>
         </a>
         <span className="text-sm sm:text-md">{collection}</span>
-        <span className="text-white inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-xs sm:text-sm font-bold text-[#356DF3]">
+        <span className="text-white inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold font-bold text-[#356DF3]">
           <span className="uppercase">{blockchain}</span>
         </span>
         <span>
           {traits?.map((traits) => (
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-xs sm:text-sm font-bold text-zinc-700 mr-2 mt-1">
-              <span className="capitalize">{traits.trait_type}</span>:{" "}
-              {traits.value}
+            <span className="inline-block bg-gray-200 rounded-xl px-2 py-1 text-xs font-semibold font-bold text-zinc-700 mx-1 my-1">
+              <span className="capitalize">
+                {traits.trait_type || "Lens Type"}
+              </span>
+              : {traits.value}
             </span>
           ))}
         </span>
