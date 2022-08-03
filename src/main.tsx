@@ -72,7 +72,7 @@ const ankrProvider = new AnkrscanProvider("");
 export const getNfts = async (address: string) => {
   const { assets } = await ankrProvider.getNFTsByOwner({
     walletAddress: address,
-    pageSize: 50,
+    pageSize: 20,
   });
   return {
     nfts: assets,
